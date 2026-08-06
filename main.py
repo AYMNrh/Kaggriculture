@@ -46,7 +46,11 @@ DROP_THRESHOLD = 15
 # Champion targets (from replays)
 TARGET_COWS = 8
 TARGET_SHEEP = 6
-HIRE_TARGETS = [(0, 5), (4, 6), (8, 9), (11, 10), (14, 11), (18, 12), (22, 14)]  # champion ramp
+# HIRE_TARGETS — champion ramp + Codex round 8 B-arm: hire 14 by day 14
+# (the strawberry ramp days 11-17 need the workers; champion has 15 units
+# at day 16 vs my 12). Marginal cost from 12->14 is fib(11)+fib(12)+fib(13)
+# = 144+233+377 = $754/day, affordable given $13-21k cash days 14-16.
+HIRE_TARGETS = [(0, 5), (4, 6), (8, 9), (11, 12), (13, 13), (14, 14), (18, 14)]  # 14 by day 14
 WHEAT_FEED_RESERVE = 25      # keep this much wheat in shed for feeding
 STRAWBERRY_WINDOW = (4, 14)  # plant days
 MELON_WINDOW = (0, 17)
@@ -518,9 +522,17 @@ def agent(obs):
         # most growth_budget new plants/day, ranked by adjacency to the
         # existing field. 3/day through day 7, 4/day after — the round-4
         # budget raise (4/8/4) overloaded watering capacity: 40 plants ->
-        # more crop hands -> milk 218->196. The 3/4 budget is the proven
-        # sweet spot (avg 97-98.5k).
-        growth_budget = 3 if day <= 7 else 4
+        # B+C arms (Codex round 8) unlocked the labor: 15 units by day 14.
+        # The 3/4 budget was the binding cap — now raise it to 6/day
+        # during the strawberry ramp (days 8-14) now that watering
+        # capacity exists. The earlier 4/8/4 failure was WITHOUT the
+        # extra hands + animal floor; this retests with them.
+        if day <= 7:
+            growth_budget = 3
+        elif day <= 14:
+            growth_budget = 6
+        else:
+            growth_budget = 4
         plant_positions = [(x, y) for y in range(n) for x in range(n)
                            if isinstance(board[y][x], dict)
                            and board[y][x].get("kind") == "PLANT"]
@@ -620,6 +632,13 @@ def agent(obs):
                           if board[y][x] is None and day + 4 <= SEASON_DAYS - 1)
     crop_workload = plants + max(0, min(plantable_count, 20))
     n_crop_hands = max(1, min(num_units - 2, (crop_workload + 5) // 7))
+    # ANIMAL FLOOR (Codex round 8 C-arm): 14 animals x 3 chores = 42
+    # actions/day needs ~6 total units (incl. farmer). The workload
+    # formula counts 20 phantom empty tiles, so a growing field inflates
+    # crop hands and starves the herd (milk 199->160 in earlier tests).
+    # With 14 hires + farmer = 15 units, 9 crop + 6 animal is viable.
+    if total_animals >= 10:
+        n_crop_hands = min(n_crop_hands, max(1, num_units - 6))
     # Farmer (unit 0) is ALWAYS an animal unit — primary feed/place/collect
     # worker. Without the floor it flips crop<->animal across the day.
     animal_unit_count = max(1, num_units - n_crop_hands)
