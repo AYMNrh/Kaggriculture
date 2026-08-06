@@ -772,19 +772,44 @@ def agent(obs):
                     # continuation (collect->apply in one loop), and the
                     # fertilizer is already in hand (no shed trip). Set
                     # key+action DIRECTLY (the tile is not a jobs entry).
-                    if inv.get("FERTILIZER", 0) > 0 and day >= 20:
-                        # LATE-GAME ONLY: fert is cheap (~$20) after day 20
-                        # and strawberry prices peak ($300+) — the
-                        # champion's fertilize volume explodes days 21-28.
-                        # Early fert ($100+) is worth more sold.
-                        fert_targets = [(x, y) for y in range(n) for x in range(n)
-                                        if isinstance(board[y][x], dict)
-                                        and board[y][x].get("kind") == "PLANT"
-                                        and board[y][x].get("fertilized_until_day", -1) < day
-                                        and board[y][x]["crop"] in ("STRAWBERRY", "MELON")
-                                        and (x, y) not in claimed]
+                    if inv.get("FERTILIZER", 0) > 0 and day >= 13:
+                        # PRODUCTION-AWARE FERTILIZE (Codex round 6): the
+                        # old day>=20 gate missed the first 3 production
+                        # dates of early strawberries (day-4 plant first
+                        # yields day 14). Strawberry refreshes every 2
+                        # days from planted_day+10-1; fertilizer applied
+                        # on day d covers refreshes through d+2. Target
+                        # only strawberries whose next refresh falls in
+                        # coverage and is not already fertilized-covered.
+                        # Prefer strawberry; melon only as fallback.
+                        fert_targets = []
+                        for y in range(n):
+                            for x in range(n):
+                                t = board[y][x]
+                                if not (isinstance(t, dict) and t.get("kind") == "PLANT"
+                                        and t.get("fertilized_until_day", -1) < day
+                                        and (x, y) not in claimed):
+                                    continue
+                                crop = t["crop"]
+                                pd = t.get("planted_day", day)
+                                if crop == "STRAWBERRY":
+                                    # next refresh: pd+10-1+2k, first k with
+                                    # refresh+2 >= day
+                                    ref = pd + 9 + 2 * max(0, (day - pd - 9 + 1) // 2)
+                                    if day <= ref <= day + 2:
+                                        fert_targets.append((x, y, 0))
+                                elif crop == "MELON":
+                                    # melon: ongoing? no — single burst at
+                                    # max_yield_day (12). Fertilize in its
+                                    # yield window if the harvest is within
+                                    # coverage.
+                                    if pd + 12 >= day and day <= pd + 12 + 2:
+                                        fert_targets.append((x, y, 1))
+                        # strawberry first (tier 0), then melon (tier 1)
+                        fert_targets.sort(key=lambda ft: (ft[2], _manhattan(pos, (ft[0], ft[1]))))
                         if fert_targets:
-                            fk = min(fert_targets, key=lambda k: _manhattan(pos, k))
+                            fx, fy, _ = fert_targets[0]
+                            fk = (fx, fy)
                             claimed.add(fk)
                             if pos[0] == fk[0] and pos[1] == fk[1]:
                                 action = ["FERTILIZE"]
@@ -836,19 +861,32 @@ def agent(obs):
                 # continuation (collect->apply in one loop), and the
                 # fertilizer is already in hand (no shed trip). Set
                 # key+action DIRECTLY (the tile is not a jobs entry).
-                if inv.get("FERTILIZER", 0) > 0 and day >= 20:
-                    # LATE-GAME ONLY: fert is cheap (~$20) after day 20
-                    # and strawberry prices peak ($300+) — the champion's
-                    # fertilize volume explodes days 21-28. Early fert
-                    # ($100+) is worth more sold.
-                    fert_targets = [(x, y) for y in range(n) for x in range(n)
-                                    if isinstance(board[y][x], dict)
-                                    and board[y][x].get("kind") == "PLANT"
-                                    and board[y][x].get("fertilized_until_day", -1) < day
-                                    and board[y][x]["crop"] in ("STRAWBERRY", "MELON")
-                                    and (x, y) not in claimed]
+                if inv.get("FERTILIZER", 0) > 0 and day >= 13:
+                    # PRODUCTION-AWARE FERTILIZE (Codex round 6): same as
+                    # the sticky-path block above — target strawberries
+                    # whose next production refresh falls in the 3-day
+                    # fertilizer coverage, starting day 13; melon fallback.
+                    fert_targets = []
+                    for yy in range(n):
+                        for xx in range(n):
+                            t = board[yy][xx]
+                            if not (isinstance(t, dict) and t.get("kind") == "PLANT"
+                                    and t.get("fertilized_until_day", -1) < day
+                                    and (xx, yy) not in claimed):
+                                continue
+                            crop = t["crop"]
+                            pd = t.get("planted_day", day)
+                            if crop == "STRAWBERRY":
+                                ref = pd + 9 + 2 * max(0, (day - pd - 9 + 1) // 2)
+                                if day <= ref <= day + 2:
+                                    fert_targets.append((xx, yy, 0))
+                            elif crop == "MELON":
+                                if pd + 12 >= day and day <= pd + 12 + 2:
+                                    fert_targets.append((xx, yy, 1))
+                    fert_targets.sort(key=lambda ft: (ft[2], _manhattan(pos, (ft[0], ft[1]))))
                     if fert_targets:
-                        fk = min(fert_targets, key=lambda k: _manhattan(pos, k))
+                        fx, fy, _ = fert_targets[0]
+                        fk = (fx, fy)
                         claimed.add(fk)
                         if pos[0] == fk[0] and pos[1] == fk[1]:
                             action = ["FERTILIZE"]
