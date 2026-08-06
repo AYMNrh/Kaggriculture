@@ -1,0 +1,6 @@
+d4h0 money=105 n_hands=0 | market=[['HIRE'], ['HIRE'], ['HIRE']] | acts=[]
+d4h6 money=85 n_hands=6 | market=[] | acts=[['PICKUP', 'WHEAT', 3], ['FEED'], ['FEED'], ['FEED'], ['PICKUP', 'FERTILIZER', 1], ['PICKUP', 'FERTILIZER', 1]]
+d4h12 money=85 n_hands=6 | market=[] | acts=[['PICKUP', 'WHEAT', 3], ['FEED'], ['FEED'], ['FEED'], ['PICKUP', 'FERTILIZER', 1], ['PICKUP', 'FERTILIZER', 1]]
+d5h0 money=85 n_hands=0 | market=[['HIRE'], ['HIRE'], ['HIRE']] | acts=[]
+d5h6 money=65 n_hands=6 | market=[] | acts=[['PICKUP', 'WHEAT', 3], ['FEED'], ['FERTILIZE'], ['FERTILIZE'], ['PLANT', 'WHEAT'], ['PICKUP', 'FERTILIZER', 1]]
+d5h12 money=65 n_hands=6 | market=[] | acts=[['PICKUP', 'WHEAT', 3], ['FEED'], ['FERTILIZE'], ['FERTILIZE'], ['FERTILIZE'], ['PICKUP', 'FERTILIZER', 1]]

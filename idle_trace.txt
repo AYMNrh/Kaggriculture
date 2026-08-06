@@ -1,0 +1,4 @@
+d12h8 | F:['PLACE', 'SHEEP'] h0:['NORTH'] h1:['DROP'] h2:['SOUTH'] h3:['NORTH'] h4:['NORTH'] h5:['WEST'] h6:['WEST'] h7:['CARE'] h8:['HARVEST'] h9:['NORTH'] h10:['HARVEST']
+d12h9 | F:['EAST'] h0:['NORTH'] h1:['PICKUP', 'WHEAT', 3] h2:['NORTH'] h3:['NORTH'] h4:['FEED'] h5:['FEED'] h6:['NORTH'] h7:['COLLECT_FERTILIZER'] h8:['WEST'] h9:['WATER'] h10:['WEST']
+d12h10 | F:['PICKUP', 'SHEEP', 1] h0:['PLACE', 'SHEEP'] h1:['SOUTH'] h2:['WEST'] h3:['FEED'] h4:['NORTH'] h5:['WEST'] h6:['WEST'] h7:['EAST'] h8:['WATER'] h9:['WEST'] h10:['WEST']
+d12h11 | F:['DROP'] h0:['SOUTH'] h1:['WEST'] h2:['NORTH'] h3:['NORTH'] h4:['EAST'] h5:['WEST'] h6:['EAST'] h7:['WEST'] h8:['HARVEST'] h9:['WATER'] h10:['NORTH']

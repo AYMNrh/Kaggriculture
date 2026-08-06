@@ -1,0 +1,7 @@
+d12 shed={'WHEAT': 30, 'FERTILIZER': 10} | sell_orders=[['SELL', 'WHEAT', 18], ['SELL', 'FERTILIZER', 10]] | n_orders=9
+d13 shed={'WHEAT': 27, 'MELON': 6, 'MILK': 9, 'WOOL': 4, 'FERTILIZER': 13} | sell_orders=[['SELL', 'WHEAT', 14], ['SELL', 'MELON', 6], ['SELL', 'MILK', 9], ['SELL', 'WOOL', 4], ['SELL', 'FERTILIZER', 13]] | n_orders=10
+d14 shed={'WHEAT': 30, 'FERTILIZER': 13, 'SHEEP': 2} | sell_orders=[['SELL', 'WHEAT', 14], ['SELL', 'FERTILIZER', 13]] | n_orders=8
+d15 shed={'WHEAT': 30, 'MILK': 9, 'FERTILIZER': 15, 'SHEEP': 2} | sell_orders=[['SELL', 'WHEAT', 14], ['SELL', 'MILK', 9], ['SELL', 'FERTILIZER', 15]] | n_orders=8
+d16 shed={'WHEAT': 27, 'STRAWBERRY': 1, 'MILK': 6, 'WOOL': 4, 'FERTILIZER': 14, 'SHEEP': 2} | sell_orders=[['SELL', 'WHEAT', 11], ['SELL', 'STRAWBERRY', 1], ['SELL', 'MILK', 6], ['SELL', 'WOOL', 4], ['SELL', 'FERTILIZER', 14]] | n_orders=10
+d17 shed={'WHEAT': 37, 'MILK': 15, 'FERTILIZER': 15, 'SHEEP': 2} | sell_orders=[['SELL', 'WHEAT', 20], ['SELL', 'MILK', 15], ['SELL', 'FERTILIZER', 15]] | n_orders=8
+d18 shed={'WHEAT': 27, 'MILK': 6, 'WOOL': 12, 'FERTILIZER': 13, 'SHEEP': 2} | sell_orders=[['SELL', 'WHEAT', 11], ['SELL', 'MILK', 6], ['SELL', 'WOOL', 12], ['SELL', 'FERTILIZER', 13]] | n_orders=8

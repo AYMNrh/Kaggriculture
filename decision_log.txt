@@ -1,0 +1,20 @@
+day8 h0 money=6
+  shed={'WHEAT': 64, 'FERTILIZER': 3}
+  market=[['SELL', 'WHEAT', 10], ['SELL', 'FERTILIZER', 3]]
+  farmer_act=['PICKUP', 'WHEAT', 3] hands_acts=[]
+day12 h0 money=144
+  shed={'WHEAT': 54, 'MILK': 2, 'WOOL': 1, 'FERTILIZER': 4}
+  market=[['SELL', 'WHEAT', 10], ['SELL', 'MILK', 2], ['SELL', 'WOOL', 1], ['SELL', 'FERTILIZER', 4]]
+  farmer_act=['PICKUP', 'WHEAT', 3] hands_acts=[]
+day16 h0 money=1
+  shed={'WHEAT': 33, 'MELON': 36, 'MILK': 2, 'FERTILIZER': 4}
+  market=[['SELL', 'WHEAT', 2], ['SELL', 'MELON', 36], ['SELL', 'MILK', 2], ['SELL', 'FERTILIZER', 4]]
+  farmer_act=['PICKUP', 'WHEAT', 3] hands_acts=[]
+day20 h0 money=11
+  shed={'WHEAT': 23, 'MILK': 2, 'WOOL': 1, 'FERTILIZER': 8, 'SHEEP': 2}
+  market=[['SELL', 'MILK', 2], ['SELL', 'WOOL', 1], ['SELL', 'FERTILIZER', 8]]
+  farmer_act=['PICKUP', 'WHEAT', 3] hands_acts=[]
+day24 h0 money=516
+  shed={'WHEAT': 63, 'STRAWBERRY': 1, 'MILK': 2, 'FERTILIZER': 9, 'SHEEP': 4}
+  market=[['SELL', 'WHEAT', 10], ['SELL', 'STRAWBERRY', 1], ['SELL', 'MILK', 2], ['SELL', 'FERTILIZER', 9], ['HIRE'], ['HIRE'], ['HIRE'], ['HIRE'], ['HIRE'], ['HIRE']]
+  farmer_act=['PICKUP', 'WHEAT', 3] hands_acts=[]

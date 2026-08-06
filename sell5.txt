@@ -1,0 +1,8 @@
+d4: [['SELL', 'FERTILIZER', 5]]
+d4: [['SELL', 'WHEAT', 7]]
+d5: [['SELL', 'WHEAT', 7], ['SELL', 'FERTILIZER', 5]]
+d5: [['SELL', 'WHEAT', 11]]
+d6: [['SELL', 'WHEAT', 14], ['SELL', 'FERTILIZER', 6]]
+d7: [['SELL', 'WOOL', 6], ['SELL', 'FERTILIZER', 6]]
+d8: [['SELL', 'WHEAT', 2], ['SELL', 'FERTILIZER', 3]]
+d8: [['SELL', 'MILK', 12], ['SELL', 'FERTILIZER', 2]]

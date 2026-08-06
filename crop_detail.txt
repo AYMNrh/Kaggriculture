@@ -1,0 +1,13 @@
+d 6 plants={'MELON': 9, 'WHEAT': 1} harvest_acts=0 seeds={'WHEAT': 13, 'STRAWBERRY': 1, 'MELON': 1}
+d 7 plants={'MELON': 9, 'STRAWBERRY': 2, 'WHEAT': 5} harvest_acts=0 seeds={'WHEAT': 15, 'MELON': 3}
+d 8 plants={'MELON': 9, 'STRAWBERRY': 2, 'WHEAT': 8} harvest_acts=0 seeds={'WHEAT': 18, 'STRAWBERRY': 2, 'MELON': 5}
+d 9 plants={'MELON': 9, 'STRAWBERRY': 3, 'WHEAT': 8} harvest_acts=0 seeds={'WHEAT': 18, 'STRAWBERRY': 2, 'MELON': 5}
+d10 plants={'MELON': 9, 'STRAWBERRY': 3, 'WHEAT': 8} harvest_acts=0 seeds={'WHEAT': 23, 'STRAWBERRY': 4, 'MELON': 7}
+d11 plants={'MELON': 9, 'STRAWBERRY': 3, 'WHEAT': 6} harvest_acts=0 seeds={'WHEAT': 27, 'STRAWBERRY': 6, 'MELON': 8}
+d12 plants={'MELON': 9, 'STRAWBERRY': 3, 'WHEAT': 4} harvest_acts=0 seeds={'WHEAT': 26, 'STRAWBERRY': 7, 'MELON': 8}
+d13 plants={'STRAWBERRY': 3, 'WHEAT': 5, 'MELON': 2} harvest_acts=0 seeds={'WHEAT': 25, 'STRAWBERRY': 10, 'MELON': 8}
+d14 plants={'STRAWBERRY': 5, 'MELON': 3, 'WHEAT': 4} harvest_acts=0 seeds={'WHEAT': 25, 'STRAWBERRY': 11, 'MELON': 6}
+d15 plants={'STRAWBERRY': 8, 'MELON': 3, 'WHEAT': 2} harvest_acts=0 seeds={'WHEAT': 31, 'STRAWBERRY': 11, 'MELON': 10}
+d16 plants={'STRAWBERRY': 8, 'MELON': 4, 'WHEAT': 2} harvest_acts=0 seeds={'WHEAT': 36, 'STRAWBERRY': 11, 'MELON': 13}
+d17 plants={'STRAWBERRY': 8, 'MELON': 6, 'WHEAT': 1} harvest_acts=0 seeds={'WHEAT': 42, 'STRAWBERRY': 11, 'MELON': 14}
+d18 plants={'STRAWBERRY': 8, 'MELON': 6, 'WHEAT': 4} harvest_acts=0 seeds={'WHEAT': 45, 'STRAWBERRY': 11, 'MELON': 17}

@@ -1,0 +1,1 @@
+d14 units=1 n_crop=1 animal_units=0 farmer_is_crop=True

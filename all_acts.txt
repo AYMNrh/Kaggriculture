@@ -1,0 +1,2 @@
+d7h8: {'SOUTH': 4, 'PICKUP': 1, 'FEED': 1, 'NORTH': 2, 'EAST': 2, 'WATER': 2}
+d8h8: {'SOUTH': 2, 'CARE': 2, 'NORTH': 2, 'WEST': 2, 'WATER': 2}

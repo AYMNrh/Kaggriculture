@@ -1,0 +1,5 @@
+d2 units=6 plants=18 plantable=3 n_crop=3 animal_units=3
+d4 units=7 plants=18 plantable=2 n_crop=3 animal_units=4
+d6 units=7 plants=10 plantable=8 n_crop=3 animal_units=4
+d8 units=10 plants=19 plantable=22 n_crop=6 animal_units=4
+d10 units=10 plants=20 plantable=44 n_crop=6 animal_units=4

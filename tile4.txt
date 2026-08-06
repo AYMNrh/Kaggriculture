@@ -1,0 +1,4 @@
+d4 land=['NW'] empty=2 money=138 seeds={'WHEAT': 4, 'MELON': 1}
+d5 land=['NW'] empty=4 money=99 seeds={'WHEAT': 2}
+d6 land=['NW', 'NE'] empty=32 money=23 seeds={'WHEAT': 2, 'STRAWBERRY': 1}
+d7 land=['NW', 'NE'] empty=33 money=138 seeds={'WHEAT': 2, 'STRAWBERRY': 2}

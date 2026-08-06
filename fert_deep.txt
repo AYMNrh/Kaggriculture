@@ -1,0 +1,2 @@
+d14h0 fert_in_shed=14 unfertilized_plants=12 [(0, 0, 'STRAWBERRY'), (1, 0, 'STRAWBERRY'), (2, 0, 'STRAWBERRY'), (5, 0, 'STRAWBERRY'), (0, 1, 'MELON'), (1, 1, 'WHEAT'), (2, 1, 'MELON'), (3, 1, 'STRAWBERRY'), (1, 2, 'WHEAT'), (2, 2, 'WHEAT')]
+all actions: [['PICKUP', 'FERTILIZER', 1]]

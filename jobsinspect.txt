@@ -1,0 +1,3 @@
+day7h8 plantable=25 seeds={'WHEAT': 11, 'STRAWBERRY': 2, 'MELON': 2}
+plant jobs generated: [('STRAWBERRY', 5, 0), ('STRAWBERRY', 6, 0), ('WHEAT', 7, 0), ('WHEAT', 8, 0), ('WHEAT', 9, 0), ('WHEAT', 3, 1), ('WHEAT', 5, 1), ('WHEAT', 6, 1), ('MELON', 7, 1), ('WHEAT', 8, 1), ('WHEAT', 9, 1), ('WHEAT', 5, 2)] ... total 15
+planted_today=set()

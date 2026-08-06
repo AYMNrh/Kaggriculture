@@ -1,0 +1,6 @@
+day0h0 obs keys: ['remainingOverageTime', 'step', 'player', 'farms', 'private', 'market', 'town', 'day', 'hour']
+  market type: <class 'kaggle_environments.utils.Struct'>, keys: ['inventory', 'prices']
+  action: {'farmer': ['PASS'], 'hands': [], 'market': [['HIRE'], ['HIRE'], ['HIRE'], ['HIRE'], ['HIRE'], ['BUY_ANIMAL', 'COW', 3], ['BUY_ANIMAL', 'SHEEP', 1], ['BUY_SEED', 'MELON', 7], ['BUY_SEED', 'WHEAT', 10], ['BUY_PRODUCT', 'WHEAT', 12]]}
+day0h1 obs keys: ['remainingOverageTime', 'step', 'player', 'farms', 'private', 'market', 'town', 'day', 'hour']
+  market type: <class 'kaggle_environments.utils.Struct'>, keys: ['inventory', 'prices']
+  action: {'farmer': ['WEST'], 'hands': [['PASS'], ['PASS'], ['PASS'], ['PASS'], ['PASS']], 'market': [['BUY_ANIMAL', 'COW', 1], ['BUY_SEED', 'WHEAT', 3]]}

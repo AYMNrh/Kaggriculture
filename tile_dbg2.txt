@@ -1,0 +1,1 @@
+day6 board 10x10 land=['NW'] tiles={'PLANT': 16, 'str': 75, 'EMPTY': 4, 'PASTURE': 4, 'WEED': 1}

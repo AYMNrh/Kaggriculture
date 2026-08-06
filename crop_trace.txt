@@ -1,0 +1,13 @@
+d 4 plants=16 unwatered=16 water_acts=0 plant_acts=0 | n_hands=0
+d 5 plants=16 unwatered=16 water_acts=0 plant_acts=0 | n_hands=0
+d 6 plants=12 unwatered=12 water_acts=0 plant_acts=0 | n_hands=0
+d 7 plants=7 unwatered=7 water_acts=0 plant_acts=0 | n_hands=0
+d 8 plants=7 unwatered=7 water_acts=0 plant_acts=0 | n_hands=0
+d 9 plants=7 unwatered=7 water_acts=0 plant_acts=0 | n_hands=0
+d10 plants=6 unwatered=6 water_acts=0 plant_acts=0 | n_hands=0
+d11 plants=6 unwatered=6 water_acts=0 plant_acts=0 | n_hands=0
+d12 plants=6 unwatered=6 water_acts=0 plant_acts=0 | n_hands=0
+d13 plants=5 unwatered=5 water_acts=0 plant_acts=0 | n_hands=0
+d14 plants=2 unwatered=2 water_acts=0 plant_acts=0 | n_hands=0
+d15 plants=0 unwatered=0 water_acts=0 plant_acts=0 | n_hands=0
+d16 plants=0 unwatered=0 water_acts=0 plant_acts=0 | n_hands=0

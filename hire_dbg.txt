@@ -1,0 +1,6 @@
+d20h0 hands=0 money=30688 | hires_this_turn=3 | market=[['SELL', 'WHEAT', 9], ['SELL', 'MILK', 18], ['SELL', 'WOOL', 12], ['SELL', 'FERTILIZER', 14], ['HIRE'], ['HIRE'], ['HIRE']]
+d20h1 hands=3 money=39581 | hires_this_turn=3 | market=[['HIRE'], ['HIRE'], ['HIRE'], ['BUY_PRODUCT', 'WHEAT', 2]]
+d20h2 hands=6 money=39473 | hires_this_turn=0 | market=[['BUY_PRODUCT', 'WHEAT', 4]]
+d20h3 hands=6 money=39289 | hires_this_turn=0 | market=[['BUY_PRODUCT', 'WHEAT', 4]]
+d20h4 hands=6 money=39105 | hires_this_turn=0 | market=[['BUY_PRODUCT', 'WHEAT', 1]]
+d20h5 hands=6 money=39059 | hires_this_turn=0 | market=[['BUY_PRODUCT', 'WHEAT', 3]]

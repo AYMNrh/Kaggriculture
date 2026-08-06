@@ -1,0 +1,8 @@
+d3h 0 money=57 n_hands=0 | market=[] | acts=[]
+d3h 4 money=57 n_hands=0 | market=[] | acts=[]
+d3h 8 money=57 n_hands=0 | market=[] | acts=[]
+d3h12 money=57 n_hands=0 | market=[] | acts=[]
+d4h 0 money=57 n_hands=0 | market=[] | acts=[]
+d4h 4 money=57 n_hands=0 | market=[] | acts=[]
+d4h 8 money=57 n_hands=0 | market=[] | acts=[]
+d4h12 money=57 n_hands=0 | market=[] | acts=[['WATER']]

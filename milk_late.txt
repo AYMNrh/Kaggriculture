@@ -1,0 +1,3 @@
+d9 shed milk=18 wool=0 sells=[['SELL', 'MILK', 18]]
+d11 shed milk=9 wool=3 sells=[['SELL', 'MILK', 9], ['SELL', 'WOOL', 3]]
+d14 shed milk=3 wool=0 sells=[['SELL', 'MILK', 3]]

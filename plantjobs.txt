@@ -1,0 +1,8 @@
+d12h 0 empty=46 seeds={'WHEAT': 26, 'STRAWBERRY': 12, 'MELON': 9} | plant_acts=0 water_acts=0 hands=0
+d12h 4 empty=46 seeds={'WHEAT': 31, 'STRAWBERRY': 14, 'MELON': 10} | plant_acts=0 water_acts=0 hands=11
+d12h 8 empty=45 seeds={'WHEAT': 31, 'STRAWBERRY': 14, 'MELON': 10} | plant_acts=0 water_acts=1 hands=11
+d12h12 empty=46 seeds={'WHEAT': 31, 'STRAWBERRY': 14, 'MELON': 10} | plant_acts=0 water_acts=1 hands=11
+d13h 0 empty=47 seeds={'WHEAT': 31, 'STRAWBERRY': 14, 'MELON': 10} | plant_acts=0 water_acts=0 hands=0
+d13h 4 empty=47 seeds={'WHEAT': 31, 'STRAWBERRY': 14, 'MELON': 10} | plant_acts=0 water_acts=0 hands=11
+d13h 8 empty=45 seeds={'WHEAT': 31, 'STRAWBERRY': 14, 'MELON': 10} | plant_acts=0 water_acts=2 hands=11
+d13h12 empty=44 seeds={'WHEAT': 31, 'STRAWBERRY': 14, 'MELON': 10} | plant_acts=0 water_acts=0 hands=11

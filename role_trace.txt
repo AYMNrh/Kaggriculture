@@ -1,0 +1,2 @@
+day12h8 units=12 plants=12 n_crop=3 animal_units=9
+hands_in_obs=11

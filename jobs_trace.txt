@@ -1,0 +1,1 @@
+d11h5 board=10x10 empty=26 past=8 cows=7 sheep=1 plants=12 shedC=0 shedS=0 | actions=[['FEED'], ['FEED'], ['PICKUP', 'WHEAT', 3], ['WATER']]

@@ -1,0 +1,144 @@
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 4 placed cows=3 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=1 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=1 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=1 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=1 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=1 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=1 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=4 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 6 placed cows=5 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d 8 placed cows=7 sheep=1 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=1 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=1 | shed cows=0 sheep=1
+d10 placed cows=9 sheep=1 | shed cows=0 sheep=1
+d10 placed cows=9 sheep=1 | shed cows=0 sheep=1
+d10 placed cows=9 sheep=1 | shed cows=0 sheep=1
+d10 placed cows=9 sheep=1 | shed cows=0 sheep=1
+d10 placed cows=9 sheep=1 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=1 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d10 placed cows=9 sheep=2 | shed cows=0 sheep=0
+d12 placed cows=9 sheep=4 | shed cows=0 sheep=1
+d12 placed cows=9 sheep=4 | shed cows=0 sheep=3
+d12 placed cows=9 sheep=4 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=4 | shed cows=0 sheep=1
+d12 placed cows=9 sheep=4 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=4 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=0
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d12 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2
+d14 placed cows=9 sheep=5 | shed cows=0 sheep=2

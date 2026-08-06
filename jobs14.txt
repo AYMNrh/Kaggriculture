@@ -1,0 +1,2 @@
+d14 units=12 plants=13 plantable=44 n_crop=5 animal_units=7
+returned actions: {'FEED': 1, 'PICKUP': 1, 'SOUTH': 1, 'EAST': 2, 'COLLECT_FERTILIZER': 2, 'WEST': 2, 'NORTH': 2, 'WATER': 1}

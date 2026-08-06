@@ -1,0 +1,8 @@
+d16h0 units=1 fert_shed=13 fert_invs=[0]
+  acts: [['PICKUP', 'WHEAT', 3]]
+d16h1 units=4 fert_shed=8 fert_invs=[0, 0, 0, 0]
+  acts: [['FEED'], ['PICKUP', 'WHEAT', 3], ['PICKUP', 'FERTILIZER', 1], ['PICKUP', 'FERTILIZER', 1]]
+d16h2 units=7 fert_shed=7 fert_invs=[0, 0, 1, 0, 0, 0, 0]
+  acts: [['FEED']]
+d16h4 units=12 fert_shed=6 fert_invs=[0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+  acts: [['FEED'], ['PICKUP', 'WHEAT', 3], ['FEED'], ['PICKUP', 'WHEAT', 3], ['PICKUP', 'FERTILIZER', 1], ['PICKUP', 'FERTILIZER', 1], ['PICKUP', 'FERTILIZER', 1]]

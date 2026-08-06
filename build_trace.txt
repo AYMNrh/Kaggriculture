@@ -1,0 +1,8 @@
+d11h 0 shedC=5 shedS=1 n_hands=0 | [['PICKUP', 'WHEAT', 3]]
+d11h 4 shedC=5 shedS=4 n_hands=8 | [['FEED'], ['CARE'], ['CARE'], ['PICKUP', 'WHEAT', 3], ['WATER']]
+d11h 8 shedC=5 shedS=4 n_hands=8 | [['WATER'], ['WATER']]
+d11h12 shedC=5 shedS=4 n_hands=8 | []
+d12h 0 shedC=5 shedS=4 n_hands=0 | [['PICKUP', 'WHEAT', 3]]
+d12h 4 shedC=5 shedS=6 n_hands=8 | [['FEED'], ['CARE'], ['CARE'], ['PICKUP', 'WHEAT', 3]]
+d12h 8 shedC=5 shedS=6 n_hands=8 | [['HARVEST'], ['WATER']]
+d12h12 shedC=5 shedS=6 n_hands=8 | []

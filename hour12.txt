@@ -1,0 +1,24 @@
+d13h 0 plants=7 acts={'PICKUP': 1}
+d13h 1 plants=7 acts={'PICKUP': 2}
+d13h 2 plants=7 acts={'FEED': 3, 'PICKUP': 2}
+d13h 3 plants=7 acts={'PICKUP': 2}
+d13h 4 plants=7 acts={'FEED': 5, 'PICKUP': 2}
+d13h 5 plants=7 acts={'CARE': 1}
+d13h 6 plants=7 acts={'FEED': 6, 'COLLECT_FERTILIZER': 1, 'PICKUP': 2}
+d13h 7 plants=7 acts={'CARE': 5}
+d13h 8 plants=7 acts={'COLLECT_FERTILIZER': 5, 'CARE': 2, 'WATER': 1}
+d13h 9 plants=7 acts={'PICKUP': 1, 'COLLECT_FERTILIZER': 2}
+d13h10 plants=7 acts={'CARE': 2}
+d13h11 plants=5 acts={'COLLECT_FERTILIZER': 2, 'PLANT': 1}
+d13h12 plants=6 acts={'FEED': 1, 'PICKUP': 1}
+d13h13 plants=6 acts={'CARE': 1, 'PLANT': 3}
+d13h14 plants=9 acts={'COLLECT_FERTILIZER': 1, 'WATER': 1}
+d13h15 plants=9 acts={}
+d13h16 plants=9 acts={'CARE': 1, 'WATER': 1, 'PLANT': 2}
+d13h17 plants=11 acts={'COLLECT_FERTILIZER': 1, 'CARE': 1, 'WATER': 4}
+d13h18 plants=11 acts={}
+d13h19 plants=11 acts={'CARE': 1}
+d13h20 plants=11 acts={'COLLECT_FERTILIZER': 1, 'DIG': 1}
+d13h21 plants=11 acts={'WATER': 2}
+d13h22 plants=11 acts={}
+d13h23 plants=11 acts={'WATER': 1}

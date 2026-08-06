@@ -1,0 +1,10 @@
+d0 plants={'MELON': 3, 'WHEAT': 1}
+d1 plants={'WHEAT': 3, 'MELON': 6}
+d2 plants={'MELON': 9, 'WHEAT': 6}
+d3 plants={'MELON': 9, 'WHEAT': 6}
+d4 plants={'MELON': 10, 'WHEAT': 5}
+d5 plants={'MELON': 10, 'STRAWBERRY': 1, 'WHEAT': 6}
+d6 plants={'MELON': 10, 'STRAWBERRY': 1, 'WHEAT': 6}
+d7 plants={'MELON': 10, 'STRAWBERRY': 2, 'WHEAT': 7}
+d8 plants={'MELON': 10, 'STRAWBERRY': 2, 'WHEAT': 6}
+d9 plants={'MELON': 10, 'STRAWBERRY': 2, 'WHEAT': 3}

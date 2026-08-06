@@ -1,0 +1,7 @@
+d4 money=440 investable_seeds={'WHEAT': 5} buys=[['BUY_SEED', 'STRAWBERRY', 1], ['BUY_SEED', 'MELON', 1], ['BUY_SEED', 'WHEAT', 3]]
+d5 money=300 investable_seeds={'WHEAT': 8, 'STRAWBERRY': 1, 'MELON': 1} buys=[['BUY_SEED', 'STRAWBERRY', 1], ['BUY_SEED', 'MELON', 1], ['BUY_SEED', 'WHEAT', 6]]
+d6 money=777 investable_seeds={'WHEAT': 13, 'STRAWBERRY': 1, 'MELON': 1} buys=[['BUY_SEED', 'STRAWBERRY', 1], ['BUY_SEED', 'MELON', 2], ['BUY_SEED', 'WHEAT', 6]]
+d7 money=703 investable_seeds={'WHEAT': 15, 'MELON': 3} buys=[['BUY_SEED', 'STRAWBERRY', 2], ['BUY_SEED', 'MELON', 2], ['BUY_SEED', 'WHEAT', 6]]
+d8 money=107 investable_seeds={'WHEAT': 18, 'STRAWBERRY': 2, 'MELON': 5} buys=[['BUY_SEED', 'STRAWBERRY', 1]]
+d9 money=631 investable_seeds={'WHEAT': 18, 'STRAWBERRY': 2, 'MELON': 5} buys=[['BUY_SEED', 'STRAWBERRY', 2], ['BUY_SEED', 'MELON', 2], ['BUY_SEED', 'WHEAT', 6]]
+d10 money=753 investable_seeds={'WHEAT': 23, 'STRAWBERRY': 4, 'MELON': 7} buys=[['BUY_SEED', 'STRAWBERRY', 2], ['BUY_SEED', 'MELON', 1], ['BUY_SEED', 'WHEAT', 6]]

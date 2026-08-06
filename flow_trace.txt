@@ -1,0 +1,6 @@
+d 8 money=     81 shed={'WHEAT': 23, 'WOOL': 1, 'FERTILIZER': 4}
+d 9 money=     88 shed={'WHEAT': 19, 'MILK': 2, 'FERTILIZER': 3, 'COW': 1}
+d10 money=     83 shed={'WHEAT': 41, 'MILK': 1, 'WOOL': 1, 'FERTILIZER': 4, 'COW': 2}
+d11 money=     52 shed={'WHEAT': 29, 'MILK': 3, 'FERTILIZER': 4, 'COW': 4}
+d12 money=     81 shed={'WHEAT': 34, 'FERTILIZER': 4, 'COW': 4}
+d13 money=     80 shed={'WHEAT': 28, 'MELON': 30, 'MILK': 3, 'WOOL': 1, 'FERTILIZER': 5, 'COW': 2}

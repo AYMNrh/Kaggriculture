@@ -1,0 +1,3 @@
+d14h0 fert_in_shed=14 n_units=1 farmer_act=['PICKUP', 'FERTILIZER', 1] market=[['SELL', 'WHEAT', 14], ['SELL', 'MELON', 6], ['SELL', 'WOOL', 4], ['SELL', 'FERTILIZER', 14], ['HIRE'], ['HIRE'], ['HIRE'], ['BUY_SEED', 'STRAWBERRY', 3], ['BUY_SEED', 'MELON', 4], ['BUY_SEED', 'WHEAT', 6]]
+d14h1 fert_in_shed=0 acts=[['PICKUP', 'WHEAT', 3], ['PICKUP', 'WHEAT', 3]] invs=[{'FERTILIZER': 1}, {}, {}, {}]
+d14h2 fert_in_shed=0 acts=[['FEED'], ['FEED']] invs=[{'FERTILIZER': 1, 'WHEAT': 3}, {'WHEAT': 3}, {}, {}, {}, {}, {}]

@@ -1,0 +1,4 @@
+d14h1 units=4 n_crop=2 carrying_fert=[] fert_in_shed=0 acts=[['PICKUP', 'WHEAT', 3]]
+d14h3 units=10 n_crop=5 carrying_fert=[] fert_in_shed=0 acts=[]
+d14h5 units=12 n_crop=5 carrying_fert=[] fert_in_shed=0 acts=[['PICKUP', 'WHEAT', 3], ['PICKUP', 'WHEAT', 3]]
+d14h8 units=12 n_crop=5 carrying_fert=[] fert_in_shed=0 acts=[['PICKUP', 'WHEAT', 3]]

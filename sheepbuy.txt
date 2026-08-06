@@ -1,0 +1,8 @@
+d0: [['BUY_ANIMAL', 'COW', 3], ['BUY_ANIMAL', 'SHEEP', 1]]
+d5: [['BUY_ANIMAL', 'COW', 1]]
+d6: [['BUY_ANIMAL', 'COW', 1]]
+d7: [['BUY_ANIMAL', 'COW', 2]]
+d9: [['BUY_ANIMAL', 'COW', 2]]
+d10: [['BUY_ANIMAL', 'SHEEP', 1]]
+d11: [['BUY_ANIMAL', 'SHEEP', 2], ['BUY_ANIMAL', 'SHEEP', 1]]
+d12: [['BUY_ANIMAL', 'SHEEP', 1], ['BUY_ANIMAL', 'SHEEP', 1]]

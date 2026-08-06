@@ -1,0 +1,8 @@
+d 0 land=['NW'] board=10x10 empty=25 money=3000
+d 2 land=['NW'] board=10x10 empty=3 money=129
+d 4 land=['NW'] board=10x10 empty=3 money=440
+d 6 land=['NW'] board=10x10 empty=9 money=777
+d 8 land=['NW', 'NE'] board=10x10 empty=22 money=766
+d10 land=['NW', 'NE', 'SW'] board=10x10 empty=37 money=739
+d12 land=['NW', 'NE', 'SW'] board=10x10 empty=43 money=188
+d14 land=['NW', 'NE', 'SW'] board=10x10 empty=48 money=12247

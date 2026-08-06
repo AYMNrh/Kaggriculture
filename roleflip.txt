@@ -1,0 +1,7 @@
+d14h0 units=1 n_crop=1 farmer_crop=True farmer_inv={} f_act=['NORTH']
+d14h1 units=4 n_crop=2 farmer_crop=False farmer_inv={} f_act=['SOUTH']
+d14h2 units=7 n_crop=5 farmer_crop=False farmer_inv={} f_act=['PICKUP', 'WHEAT', 3]
+d14h3 units=10 n_crop=5 farmer_crop=False farmer_inv={'WHEAT': 3} f_act=['NORTH']
+d14h4 units=12 n_crop=5 farmer_crop=False farmer_inv={'WHEAT': 3} f_act=['FEED']
+d14h5 units=12 n_crop=5 farmer_crop=False farmer_inv={'WHEAT': 2} f_act=['NORTH']
+d14h6 units=12 n_crop=5 farmer_crop=False farmer_inv={'WHEAT': 2} f_act=['FEED']
