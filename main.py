@@ -472,6 +472,12 @@ def agent(obs):
         def crop_for(x, y, idx):
             if STRAWBERRY_WINDOW[0] <= day <= STRAWBERRY_WINDOW[1]:
                 # quota by day: 4-10 all strawberry, 11-14 3-of-4
+                # MELON DIAGNOSTIC (variant C): guarantee 1 melon admission
+                # on days 4/7/10/13 so melon gets an earlier start — melon
+                # sells 66 vs champion 132; earlier melon = more production
+                # events before season end (10-day first_yield).
+                if day in (4, 7, 10, 13) and placed.get("MELON", 0) < 1:
+                    return "MELON"
                 if day <= 10:
                     return "STRAWBERRY"
                 # days 11-14: admit strawberry for the first 3 slots of
