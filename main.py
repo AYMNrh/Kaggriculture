@@ -647,6 +647,7 @@ def agent(obs):
 
     unit_order = (list(range(animal_unit_count, num_units))
                   + list(range(animal_unit_count)))
+    fert_turn = 0  # cap fertilize applications per turn (feed-safe gate)
     for order_idx, idx in enumerate(unit_order):
         utype, pos = units[idx]
         is_crop_unit = idx >= animal_unit_count
@@ -772,7 +773,18 @@ def agent(obs):
                     # continuation (collect->apply in one loop), and the
                     # fertilizer is already in hand (no shed trip). Set
                     # key+action DIRECTLY (the tile is not a jobs entry).
-                    if inv.get("FERTILIZER", 0) > 0 and day >= 13:
+                    #
+                    # FEED-SAFE GATE (Codex round 6): fire when the hand is
+                    # idle OR all FEED jobs are covered — feeding is the
+                    # only life-critical animal duty; CARE/COLLECT can wait
+                    # a turn. This lets fertilize hit the early strawberry
+                    # production window (days 13-19), not just day 20+.
+                    # Capped at 2 applications/turn so hands don't abandon
+                    # the herd.
+                    feed_covered = feed_jobs == 0
+                    if (inv.get("FERTILIZER", 0) > 0 and day >= 13
+                            and fert_turn < 2
+                            and (best_key is None or feed_covered)):
                         # PRODUCTION-AWARE FERTILIZE (Codex round 6): the
                         # old day>=20 gate missed the first 3 production
                         # dates of early strawberries (day-4 plant first
@@ -813,6 +825,7 @@ def agent(obs):
                             claimed.add(fk)
                             if pos[0] == fk[0] and pos[1] == fk[1]:
                                 action = ["FERTILIZE"]
+                                fert_turn += 1
                             else:
                                 action = move_toward(pos, fk)
                             _STATE.setdefault("targets", {})[idx] = list(fk)
@@ -861,7 +874,18 @@ def agent(obs):
                 # continuation (collect->apply in one loop), and the
                 # fertilizer is already in hand (no shed trip). Set
                 # key+action DIRECTLY (the tile is not a jobs entry).
-                if inv.get("FERTILIZER", 0) > 0 and day >= 13:
+                #
+                # FEED-SAFE GATE (Codex round 6): fire when the hand is
+                # idle OR all FEED jobs are covered — feeding is the
+                # only life-critical animal duty; CARE/COLLECT can wait
+                # a turn. This lets fertilize hit the early strawberry
+                # production window (days 13-19), not just day 20+.
+                # Capped at 2 applications/turn so hands don't abandon
+                # the herd.
+                feed_covered = feed_jobs == 0
+                if (inv.get("FERTILIZER", 0) > 0 and day >= 13
+                        and fert_turn < 2
+                        and (best_key is None or feed_covered)):
                     # PRODUCTION-AWARE FERTILIZE (Codex round 6): same as
                     # the sticky-path block above — target strawberries
                     # whose next production refresh falls in the 3-day
@@ -890,6 +914,7 @@ def agent(obs):
                         claimed.add(fk)
                         if pos[0] == fk[0] and pos[1] == fk[1]:
                             action = ["FERTILIZE"]
+                            fert_turn += 1
                         else:
                             action = move_toward(pos, fk)
                         _STATE.setdefault("targets", {})[idx] = list(fk)
