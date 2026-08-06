@@ -174,17 +174,16 @@ def agent(obs):
     # everything into animals/land/seeds, then compounds hard. Sells are
     # queued FIRST and fund the buys later in the same market list, so the
     # effective budget is cash + what this turn's sells will actually bring
-    # in. sell_value mirrors the sell loop EXACTLY: same wheat reserve
-    # (max(10, pipeline_animals)), same 20-unit wheat cap, never animals.
-    # (Codex round 4: the old version used WHEAT_FEED_RESERVE+total_animals
-    # with no 20-cap — it over/under-stated income and could overspend.)
+    # in. sell_value mirrors the sell loop EXACTLY (surplus wheat only,
+    # never the feed reserve, never animals) so the budget never counts
+    # phantom income. Keep only a tiny emergency buffer.
     sell_value = 0
     for item, qty in shed.items():
         if qty <= 0 or item in ("GOOSE", "COW", "SHEEP"):
             continue
         if item == "WHEAT":
-            surplus = qty - max(10, pipeline_animals)
-            qty = max(0, min(surplus, 20))
+            surplus = qty - WHEAT_FEED_RESERVE - total_animals
+            qty = max(0, surplus)
         sell_value += qty * obs["market"]["prices"].get(item, 0)
     op_buffer = 60
     investable = money + 0.6 * sell_value - op_buffer
