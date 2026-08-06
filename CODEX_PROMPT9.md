@@ -1,0 +1,23 @@
+Round 9 for Codex — feasibility of RL / an "improving algorithm" inside main.py.
+
+## The user's idea
+Add reinforcement learning or an in-game improving/adaptive algorithm INSIDE main.py so the agent learns during the competition.
+
+## The hard constraints (from official rules, fetched fresh)
+1. 720 turns/episode, fresh game each time. 2-player only.
+2. Rules Section 12 NO INGRESS/EGRESS: during evaluation the submission may not pull in or send out any external information. No internet, no training server calls.
+3. Each episode runs in a fresh sandbox process — no filesystem persistence between ladder games (the agent cannot remember past games).
+4. 1.6 vCPUs / 6.5 GB RAM; agent must return actions within the turn budget.
+5. Deterministic env given seed (verified — same seed reproduces same result exactly). Town shop unlocks are random per seed and VISIBLE in obs.town.unlocked_shops every turn. Market prices visible every turn (obs.market.prices).
+
+## Current agent
+About 104-108k avg vs pass, peak 118.8k, submitted and climbing ladder (693 rating). Role-split architecture, hand-crafted heuristics, CARE doubling, late fertilize, compact-frontier planting.
+
+## Questions
+1. Is in-episode RL (TD/Q-learning/bandits over 720 steps) viable at all here? What's the best a 720-step online learner could plausibly add vs the fixed heuristics?
+2. Is offline RL/evolutionary search (train HERE across thousands of seeds, embed the result) the right interpretation of the user's idea? What specifically should we optimize — hire ramp thresholds, sell timing, growth budget, priority weights?
+3. In-episode ADAPTIVE heuristics using unlocked_shops + prices: which 1-2 are highest-value? (e.g. tilt crop mix toward shops in demand; hold premium goods when price is rising; reduce sell volume when glutting)
+4. Is there ANY legal way to persist learning across episodes in this setup, or is that definitively out?
+5. If we did one offline optimization pass with the compute available (e.g. 50-100k env steps), what's the single highest-value thing to tune?
+
+Write ROUND9.md. Be direct and honest — if RL is mostly hype here, say so and give the concrete alternative. Do not modify main.py.
