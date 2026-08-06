@@ -408,6 +408,15 @@ def agent(obs):
                             add_job(x, y, 4.5, ["HARVEST"])
                     elif age >= CROPS[crop]["max_yield_day"] and t.get("yield_units", 0) > 0:
                         add_job(x, y, 4.5, ["HARVEST"])
+                    elif (crop == "MELON" and day <= 17
+                          and t.get("yield_units", 0) == 0):
+                        # MELON RECYCLE (Codex round 7): non-ongoing melon
+                        # harvested at day 12; the exhausted plant sits on
+                        # the tile forever. DIG it so the tile frees for a
+                        # second crop — a replacement planted by day 17
+                        # reaches its day-12 maximum by day 29. Priority
+                        # just under WEED dig; only early melons recycle.
+                        add_job(x, y, 1.5, ["DIG"])
             elif kind == "WEED":
                 add_job(x, y, 1, ["DIG"])
 
