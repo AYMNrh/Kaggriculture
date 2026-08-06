@@ -386,11 +386,18 @@ def agent(obs):
     for (x, y) in _STATE["planted_today"]:
         add_job(x, y, 4, ["WATER"])
 
-    # Fertilize premium crops: DISABLED — every implementation in this
-    # architecture regressed (animal units collect fert they can't apply,
-    # crop hands get stuck hauling it, and the reserve costs real income).
-    # Fertilizer sells for $100+ (decaying late); selling it funds the
-    # animal ramp. The fertilize doubling stays unclaimed — see notes.
+    # Fertilize premium crops. Codex finding (replay 90219149): the
+    # champion's ANIMAL units collect fertilizer and apply it directly to
+    # nearby crops as a continuation of their route (day 11 unit 7,
+    # day 12 units 3/9, day 13 unit 4) — no shed round trip. FERTILIZE
+    # marks coverage through day+2 (3 days, kaggriculture.py:419-425) and
+    # accelerates toward the fixed max_yield cap; its value is early cash
+    # + rescuing late plantings, not a blanket 2x.
+    # NOTE: FERTILIZE is applied ONLY via the carry-fert idle filler in
+    # the assignment loop (animal hand that already carries fert applies
+    # it when no animal chores remain). We do NOT create FERTILIZE jobs
+    # here — a hand picking the job without carrying fert would fail
+    # silently (the action consumes from inventory).
 
     # Build pastures only up to animals actually in the pipeline (bought or
     # placed) — don't squat on 14 tiles while planting is starved. The
@@ -572,7 +579,7 @@ def agent(obs):
         hands_actions[hand_idx] = action
 
     def job_prio_for(k, is_planter):
-        """Role-adjusted priority: planters prefer PLANT, waterers WATER."""
+        """Role-adjusted priority (planter boost DISABLED for A/B)."""
         prio, action = jobs[k]
         return prio, action
 
@@ -596,6 +603,12 @@ def agent(obs):
             else:
                 set_hand_action(idx, action)
             continue
+
+        # CARRY-FERTILIZER continuation DISABLED (v1 regressed: it fired
+        # BEFORE animal job selection, so hands carrying fert diverted to
+        # fertilize instead of feeding — milk 247->168, wool 104->64).
+        # Re-enable only as a post-animal-chores idle filler (see the
+        # job-pick fallback below), not a pre-emptive branch.
 
         # Carrying an animal? Its job is a matching empty structure — place
         # it, don't get distracted by feed/water jobs. (Animal units only.)
@@ -692,6 +705,35 @@ def agent(obs):
                         best = score
                         best_key = k
                 if best_key is None and not is_crop_unit:
+                    # Animal hand idle: carry-fert apply takes priority
+                    # over crop watering — the champion's route
+                    # continuation (collect->apply in one loop), and the
+                    # fertilizer is already in hand (no shed trip). Set
+                    # key+action DIRECTLY (the tile is not a jobs entry).
+                    if inv.get("FERTILIZER", 0) > 0 and day >= 20:
+                        # LATE-GAME ONLY: fert is cheap (~$20) after day 20
+                        # and strawberry prices peak ($300+) — the
+                        # champion's fertilize volume explodes days 21-28.
+                        # Early fert ($100+) is worth more sold.
+                        fert_targets = [(x, y) for y in range(n) for x in range(n)
+                                        if isinstance(board[y][x], dict)
+                                        and board[y][x].get("kind") == "PLANT"
+                                        and board[y][x].get("fertilized_until_day", -1) < day
+                                        and board[y][x]["crop"] in ("STRAWBERRY", "MELON")
+                                        and (x, y) not in claimed]
+                        if fert_targets:
+                            fk = min(fert_targets, key=lambda k: _manhattan(pos, k))
+                            claimed.add(fk)
+                            if pos[0] == fk[0] and pos[1] == fk[1]:
+                                action = ["FERTILIZE"]
+                            else:
+                                action = move_toward(pos, fk)
+                            _STATE.setdefault("targets", {})[idx] = list(fk)
+                            if utype == "farmer":
+                                farmer_action = action
+                            else:
+                                set_hand_action(idx, action)
+                            continue
                     for k in crop_work:
                         if k in claimed:
                             continue
@@ -727,6 +769,35 @@ def agent(obs):
                     best = score
                     best_key = k
             if best_key is None and not is_crop_unit:
+                # Animal hand idle: carry-fert apply takes priority
+                # over crop watering — the champion's route
+                # continuation (collect->apply in one loop), and the
+                # fertilizer is already in hand (no shed trip). Set
+                # key+action DIRECTLY (the tile is not a jobs entry).
+                if inv.get("FERTILIZER", 0) > 0 and day >= 20:
+                    # LATE-GAME ONLY: fert is cheap (~$20) after day 20
+                    # and strawberry prices peak ($300+) — the champion's
+                    # fertilize volume explodes days 21-28. Early fert
+                    # ($100+) is worth more sold.
+                    fert_targets = [(x, y) for y in range(n) for x in range(n)
+                                    if isinstance(board[y][x], dict)
+                                    and board[y][x].get("kind") == "PLANT"
+                                    and board[y][x].get("fertilized_until_day", -1) < day
+                                    and board[y][x]["crop"] in ("STRAWBERRY", "MELON")
+                                    and (x, y) not in claimed]
+                    if fert_targets:
+                        fk = min(fert_targets, key=lambda k: _manhattan(pos, k))
+                        claimed.add(fk)
+                        if pos[0] == fk[0] and pos[1] == fk[1]:
+                            action = ["FERTILIZE"]
+                        else:
+                            action = move_toward(pos, fk)
+                        _STATE.setdefault("targets", {})[idx] = list(fk)
+                        if utype == "farmer":
+                            farmer_action = action
+                        else:
+                            set_hand_action(idx, action)
+                        continue
                 for k in crop_work:
                     if k in claimed:
                         continue
