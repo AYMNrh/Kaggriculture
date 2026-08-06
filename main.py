@@ -246,8 +246,22 @@ def agent(obs):
                 market_orders.append(o)
     elif hour == 0 and day >= 2:
         # ONE burst per day, only when genuinely flush. Champion buys at
-        # money $700-2,300; cows first, sheep after cows fill.
-        if (cows_in_pipeline < TARGET_COWS
+        # money $700-2,300; cows first EXCEPT when the sheep floor is
+        # unmet (Codex round 4: sheep placed 5 days earlier = 1-2 extra
+        # production events; wool is the largest animal-side gap, 99-119
+        # vs champion 164).
+        sheep_floor = 2 if day >= 5 else (1 if day >= 3 else 0)
+        if day >= 8:
+            sheep_floor = 4
+        if day >= 11:
+            sheep_floor = 6
+        sheep_needed = max(0, sheep_floor - sheep_in_pipeline)
+        if (sheep_needed > 0 and investable > ANIMALS["SHEEP"]["cost"] + 250):
+            # sheep floor unmet: buy sheep FIRST
+            n_sheep = min(sheep_needed, 2 if investable > 2 * ANIMALS["SHEEP"]["cost"] + 700 else 1)
+            market_orders.append(["BUY_ANIMAL", "SHEEP", n_sheep])
+            investable -= ANIMALS["SHEEP"]["cost"] * n_sheep
+        elif (cows_in_pipeline < TARGET_COWS
                 and investable > ANIMALS["COW"]["cost"] + 250):
             n_cows = 2 if investable > 2 * ANIMALS["COW"]["cost"] + 600 else 1
             market_orders.append(["BUY_ANIMAL", "COW", n_cows])
@@ -371,6 +385,10 @@ def agent(obs):
                         add_job(x, y, 4.5, ["HARVEST"])
             elif kind == "PLANT":
                 if not t["watered_today"]:
+                    # FLAT WATER (reverted from risk-tiering: the rotation
+                    # skipped production-critical wheat/melon and melon
+                    # crashed 84->8; tiering gains were not worth the
+                    # fragility). Keep it simple — water everything.
                     add_job(x, y, 4, ["WATER"])
                 else:
                     crop = t["crop"]
@@ -384,7 +402,10 @@ def agent(obs):
                 add_job(x, y, 1, ["DIG"])
 
     for (x, y) in _STATE["planted_today"]:
-        add_job(x, y, 4, ["WATER"])
+        # NEW PLANTS MUST be watered today (they start with 1 unwatered
+        # strike — missing today makes it 2 and they die). Priority 4.8,
+        # above all other crop work.
+        add_job(x, y, 4.8, ["WATER"])
 
     # Fertilize premium crops. Codex finding (replay 90219149): the
     # champion's ANIMAL units collect fertilizer and apply it directly to
@@ -464,13 +485,11 @@ def agent(obs):
             max_early = 999
         # BOUNDED COMPACT-FRONTIER PLANTING (Codex round 3 #2): admit at
         # most growth_budget new plants/day, ranked by adjacency to the
-        # existing field (dense carpet = short walks). Each admitted
-        # PLANT creates a same-day WATER obligation — the planted_today
-        # loop below covers it. The old loop emitted jobs for EVERY free
-        # tile (scattered field, long walks, no growth pressure).
-        growth_budget = 3 if day <= 7 else 4  # champion plants 8-14 late, but
-        # only after the field is established; early growth must not
-        # outrun watering capacity
+        # existing field. 3/day through day 7, 4/day after — the round-4
+        # budget raise (4/8/4) overloaded watering capacity: 40 plants ->
+        # more crop hands -> milk 218->196. The 3/4 budget is the proven
+        # sweet spot (avg 97-98.5k).
+        growth_budget = 3 if day <= 7 else 4
         plant_positions = [(x, y) for y in range(n) for x in range(n)
                            if isinstance(board[y][x], dict)
                            and board[y][x].get("kind") == "PLANT"]
