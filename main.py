@@ -461,19 +461,25 @@ def agent(obs):
                 build_budget -= 1
 
     # Plant crops (strawberry in window, melon in window, wheat always).
-    # Champion mix: ~67 wheat + 41 strawberry (days 4-14) + 26 melon
-    # (days 0-17) — INTERLEAVED, not all-one-crop. During the strawberry
-    # window ~50% strawberry / 30% melon / 20% wheat; before it, melon/
-    # wheat; after it, wheat/melon.
+    # STRAWBERRY-FIRST QUOTA (Codex round 5): the old idx%10 mix was
+    # accidental — the spatially-sorted plantable list and seed fallback
+    # distorted the real mix (strawberry 73 vs champion 267). During the
+    # strawberry window, admit STRAWBERRY first from the daily budget:
+    # days 4-10 ALL admissions are strawberry while seeds allow; days
+    # 11-14 at least 3 of 4; melon/wheat only as fallback. Same field
+    # size, more $/tile.
     if hour <= PLANT_CUTOFF_HOUR:
         def crop_for(x, y, idx):
             if STRAWBERRY_WINDOW[0] <= day <= STRAWBERRY_WINDOW[1]:
-                # Strawberry is the champion's #1 income (267 sold @ $120-312).
-                # During its window, plant 80% strawberry, 20% melon/wheat.
-                r = idx % 10
-                if r < 8:
+                # quota by day: 4-10 all strawberry, 11-14 3-of-4
+                if day <= 10:
                     return "STRAWBERRY"
-                if r < 9:
+                # days 11-14: admit strawberry for the first 3 slots of
+                # the day's budget (tracked via placed counts below)
+                strawberry_quota = 3
+                if placed.get("STRAWBERRY", 0) < strawberry_quota:
+                    return "STRAWBERRY"
+                if placed.get("MELON", 0) < 1:
                     return "MELON"
                 return "WHEAT"
             if MELON_WINDOW[0] <= day <= MELON_WINDOW[1]:

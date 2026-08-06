@@ -1,0 +1,5 @@
+d5 sheep placed=1 shed=0
+d8 sheep placed=2 shed=0
+d10 sheep placed=4 shed=0
+d11 sheep placed=5 shed=0
+d12 sheep placed=6 shed=0

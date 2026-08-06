@@ -1,0 +1,4 @@
+d5 seeds: straw=0 melon=0 wheat=0 money=$402
+d8 seeds: straw=0 melon=0 wheat=0 money=$138
+d11 seeds: straw=0 melon=0 wheat=0 money=$570
+d14 seeds: straw=0 melon=0 wheat=0 money=$11,786
