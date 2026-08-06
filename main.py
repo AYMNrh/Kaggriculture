@@ -382,7 +382,17 @@ def agent(obs):
                     if t.get("fertilizer_available"):
                         add_job(x, y, 5, ["COLLECT_FERTILIZER"])
                     if t.get("yield_units", 0) > 0:
-                        add_job(x, y, 4.5, ["HARVEST"])
+                        # CAP-RISK HARVEST (Codex round 4): with daily CARE
+                        # a sheep can add ~4 units at one production event;
+                        # yield near max_held (6) risks losing output to
+                        # the cap on the next refresh. Harvest urgent when
+                        # yield + 1 pending >= max_held, else routine.
+                        held_cap = 6  # max_held for milk/wool (env const)
+                        yield_u = t.get("yield_units", 0)
+                        if yield_u + 1 >= held_cap:
+                            add_job(x, y, 5.7, ["HARVEST"])  # above CARE 5.5
+                        else:
+                            add_job(x, y, 4.5, ["HARVEST"])
             elif kind == "PLANT":
                 if not t["watered_today"]:
                     # FLAT WATER (reverted from risk-tiering: the rotation
