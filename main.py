@@ -579,7 +579,9 @@ def agent(obs):
         hands_actions[hand_idx] = action
 
     def job_prio_for(k, is_planter):
-        """Role-adjusted priority (planter boost DISABLED for A/B)."""
+        """Role-adjusted priority (planter boost DISABLED — reverts the
+        milk/wool crash: boosting PLANT for one hand still grew plants,
+        which inflated the crop-hand count and starved the herd)."""
         prio, action = jobs[k]
         return prio, action
 
