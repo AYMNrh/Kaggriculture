@@ -1,0 +1,4 @@
+d8h0 units=1 animals=6
+d8h8 units=10 animals=6
+d8h12 units=10 animals=7
+d8h16 units=10 animals=7

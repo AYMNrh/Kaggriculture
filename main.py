@@ -462,11 +462,29 @@ def agent(obs):
             max_early = 19  # champion has 19 plants by day 4
         else:
             max_early = 999
+        # BOUNDED COMPACT-FRONTIER PLANTING (Codex round 3 #2): admit at
+        # most growth_budget new plants/day, ranked by adjacency to the
+        # existing field (dense carpet = short walks). Each admitted
+        # PLANT creates a same-day WATER obligation — the planted_today
+        # loop below covers it. The old loop emitted jobs for EVERY free
+        # tile (scattered field, long walks, no growth pressure).
+        growth_budget = 3 if day <= 7 else 4  # champion plants 8-14 late, but
+        # only after the field is established; early growth must not
+        # outrun watering capacity
+        plant_positions = [(x, y) for y in range(n) for x in range(n)
+                           if isinstance(board[y][x], dict)
+                           and board[y][x].get("kind") == "PLANT"]
+        if plant_positions:
+            plantable.sort(key=lambda c: -sum(1 for p in plant_positions
+                                              if _manhattan(c, p) == 1))
+        admitted = 0
         for idx, (x, y) in enumerate(plantable):
             if (x, y) in _STATE["planted_today"]:
                 continue
             total_plants = plants + sum(placed.values())
             if total_plants >= max_early:
+                break
+            if admitted >= growth_budget:
                 break
             crop = crop_for(x, y, idx)
             if placed[crop] >= seeds.get(crop, 0):
@@ -481,6 +499,7 @@ def agent(obs):
                 break
             add_job(x, y, 3.2, ["PLANT", crop])
             placed[crop] += 1
+            admitted += 1
 
     # ------------------------------------------------------------------
     # 4. Assign units (sticky targets + reservation)
