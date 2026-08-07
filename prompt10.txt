@@ -1,0 +1,45 @@
+Round 10 for Codex - the FULL THUNDER decode + 8 failed experiments this session. Need a real architectural plan.
+
+## THUNDER THUNDER (#1, avg $121,608, max $158,518) - decoded from 36 replays
+- 61 live plants: 42 STRAWBERRY + 12 MELON + 7 WHEAT (strawberry = 69% of field)
+- 14 animals, 15 units (14 hands + farmer)
+- Water: ~30/day avg. PHASE-SPLIT: strawberry watered EVEN days (cu=0 even), melon ODD days. cu NEVER 2.
+- Strawberry planted days 4-11 (last day 11), 42 plants = ~4-5/day EVERY day
+- Actions/season: WATER 910-922, HARVEST 340-374, CARE 307-322, FEED 301-314, COLLECT_FERT 249-354, PLANT 158-176, FERTILIZE 78-84
+- Sells: strawberry 263-313, milk 213-267, wool 146-235, melon 144, wheat 224-282 (winner) / 742-985 (loser)
+- ZERO weeds at day 16 (their watering never drops a plant)
+- ~9 crop + 6 animal unit split (estimated: 15 units, 14 animals x 3 chores = 42 actions / ~8 per hand = 5-6 animal units)
+
+## My agent (committed 0615ccc, the PROVEN best)
+- 23-25 live plants: 15 strawberry + 7 melon + 1 wheat (strawberry 60%)
+- 14 animals, 15 units
+- Water ~25/day FLAT (water everything daily, no deferral)
+- 5 WEEDS by day 16, 11 by day 27 (plants dying - crop hands overloaded)
+- PLANT stops on days 4/6/12/16 (0 actions those days) - PLANT priority 2 loses to WATER 4
+- avg $103-108k vs pass, seed-42 $108,368, peak $118,849 (old config)
+
+## All 8 failed experiments this session (each reverted)
+1. cu>=1 deferral (water only when consecutive_unwatered>=1): 36 plants but strawberry 88->52, $100k. WHY: recovery water priority 4.0 lost to harvest 4.5.
+2. Day-alternating all crops: $64k catastrophe (melon yield window ages 6-12 needs daily water)
+3. Phase-split strawberry-even/melon-odd: $81k, melon crashed 32 (my melon planted day 0-17 dies on odd-only; THUNDER's 12 all plant day 0-11)
+4. Phase-split + melon daily: $94-97k, strawberry 45
+5. cu>=1 + melon daily + fertilize-water coupling: $95k, strawberry 44
+6. cu>=1 with priority 5.0 critical water (Codex round 9 suggestion): $87-90k, WORSE than 4.0
+7. PLANT priority 2->4.2 (above WATER): $77-80k, milk 185/wool 130/melon 60 all down
+8. Crop-hand divisor 7->4 (more crop hands, 9 crop + 6 animal): $83-87k, milk 171/wool 110 (animal floor 6 too low for 14 animals)
+
+## The core tension I cannot break with single-variable changes
+- 14 animals need ~6-7 units for FEED/CARE/COLLECT (42 actions/day)
+- 42 strawberry need ~8-9 crop units (water every-other-day + harvest + plant)
+- 15 total units - both needs = conflict. THUNDER resolves it with STABLE TERRITORIES (each crop hand owns a field slice, never crosses paths) + phase water (halves water demand) + dedicated planter hands.
+- My role-split scheduler (global priority competition + sticky single tiles) drops water jobs under load -> weeds. Every priority/budget/divisor tweak just reorders a saturated pipeline.
+
+## What I need from you
+A REAL architectural plan, not another single-variable test:
+1. What is THUNDER's exact unit-split algorithm? (How do they decide crop vs animal hands as the field grows? Their formula must produce 9 crop + 6 animal at 61 plants.)
+2. The D-arm (stable spatial territories) I tried once regressed ($99-105k). What was likely wrong, and how would THUNDER's version differ? (Their hand14 trace shows 8 useful actions/hand/day - mine does 5.)
+3. Can 42 strawberry + 14 animals fit in 15 units AT ALL with my scheduler, or is the territory system mandatory?
+4. Given the priority evidence (every ordering regresses), is there a scheduling architecture that handles BOTH the herd and the field? (e.g. strict time-slicing: hours 0-8 animals, 8-16 crops? Or role-locked hands that NEVER spill?)
+5. What is the MINIMAL set of changes (2-3 max) that replicates THUNDER's 61-plant field without breaking the $103k baseline?
+
+Read main.py (esp. role-split ~line 620-700, jobs ~340-430, planting ~500-565) + ROUND8.md + ROUND9.md. Give me a concrete plan with code-level specifics. If the honest answer is "you need the territory rewrite", say so and spec it precisely.
