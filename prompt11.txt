@@ -1,0 +1,46 @@
+Round 11 for Codex - complete experimental record. 17 failed changes this session. Need the honest verdict + ONE path.
+
+## The definitive data
+- Baseline (committed 0615ccc): vs pass mean $104-108.7k, med $106.9k, p90 $111.4-114.5k, max $116.5k. 50/50 wins.
+- Mirror match (real-opponent proxy): mean $72.2-73.8k (market sharing costs 30%)
+- My REAL ladder games (15 played): avg ~$82-90k, lost 6/15. Crushed 59k vs 145k by THUNDER-style agent (270 strawberry).
+- THUNDER (#1, 36 replays): avg $121.6k, max $158.5k. 61 plants (42 strawberry), 46 waters/day, 15 units, ZERO weeds.
+- Upper bound measured: my agent peaks at 25 waters/day = 25 plants. THUNDER: 46 waters/day = 61 plants. The ENTIRE gap is watering capacity: 21 waters/day = ~21 plants = ~$23k.
+
+## ALL 17 experiments this session (every one reverted)
+WATER DEFERRAL (all regressed):
+1. cu>=1 deferral (water only when consecutive_unwatered>=1): 36 plants but strawberry 88->52, $100k
+2. Day-alternating all crops: $64k (melon yield window dies)
+3. Phase-split strawberry-even/melon-odd: $81k, melon crashed 32
+4. Phase-split + melon daily: $94-97k, strawberry 45
+5. cu>=1 + melon daily + fert-water coupling: $95k, strawberry 44
+6. cu>=1 with priority 5.0 critical water: $87-90k (worse than 4.0!)
+7. Territory-phased water (even days): $93k
+8. Production-day water (planted_day+9+2k): $91.6k
+
+STRUCTURAL:
+9. PLANT priority 2->4.2 (above WATER): $77-80k (milk 185, wool 130, melon 60 all down)
+10. Crop-hand divisor 7->4 (9 crop + 6 animal): $83-87k (milk 171, wool 110 - animal floor 6 too low)
+11. Budget 8/day days 8-14: PAIRED A/B on 40 seeds: -$789 mean, 11/40 wins (small-panel gain was luck)
+12. Stable serpentine territories (daily, no spill): neutral $102.7-106.3k (not better)
+13. Balanced spread planting across slices: $82k, strawberry crashed 24
+14. THUNDER hire ramp (14 by day 12): $98.9k (milk 202, strawberry 68)
+15. Strawberry seed priority (50-target/50%): $95.9k (melon 90->66, milk 210->194)
+16. Shop-aware seed buying (berry_demand): ZERO effect on 40 seeds (field cap makes extra seeds useless)
+17. Local-greedy adjacent watering: $51.5k catastrophic (strawberry 3)
+
+## The hard facts
+- Shop unlock timing correlates +$31k (THUNDER data: early berry shops = $128k vs late $97k). Shops identical for both players, visible every turn. But my adaptation does NOTHING because the field cap means I can't produce more strawberry regardless.
+- THUNDER day-0: plants 2/hour ALL DAY (19 by day 4), waters each plant same hour. My agent: burst-plant hours 0-4 (PLANT_CUTOFF_HOUR), then stop.
+- THUNDER hand ramp: 5->8 by d8, 14 by d12. They spend to near-zero days 2-8 (money $24-$1.7k) investing in labor+field.
+- My crop hands: 2-6 useful actions/day, 15-17 moves. THUNDER: 7-8 useful, few moves.
+- Peak 25 plants/25 waters/day is EXACTLY capped by watering capacity.
+
+## What I need from you
+Be brutal and honest:
+1. Is the "watering capacity wall" (25/day) breakable at all within my role-split architecture, or is the THUNDER hourly-planting model REQUIRED? Give me the ONE change with the best expected value that I have NOT tried.
+2. My 17 failures suggest the role-split scheduler itself is the wall (crop hands idle at 2.8 waters/day each with 9 hands). If the field grew to 40 plants, would the 9 crop hands actually water them, or is there another hidden cap?
+3. Is the honest answer that consistent-$110k requires accepting the ~$104-108k baseline + peak-hunting? Or is there a real $5k+ lever left?
+4. THUNDER plants 19 by day 4 with 5 hands. My max_early=19 cap through day 3 + 3/day budget = 9 plants. Is raising the EARLY planting (days 0-3) the untested lever? (Not the mid-game budget — I tested that.)
+
+Read main.py + ROUND8/9/10.md + the experiment list above. Give ONE concrete change to test, code-level. If the answer is "no lever exists", say so plainly.
